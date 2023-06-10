@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup] ="insertFrm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter username" formControlName="username" >
+                    <div *ngIf="insertFrm.controls['username'].hasError('required') && (insertFrm.controls['username'].dirty||insertFrm.controls['username'].touched)">
+                        <!-- insertFrm.controls['id'].dirty (đã chỉnh sửa),insertFrm.controls['id'].touched (đã nhập vào textbox) -->
+		                <small *ngIf="insertFrm.controls['username'].hasError('required')" class="text-danger">username is required.</small>
+		                <!-- <small  *ngIf="insertFrm.controls['id'].hasError('maxlength')" class="text-danger">	  //bổ sung nếu dùng nhiều validate kết hợp -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter password" formControlName="password" >
+                    <div *ngIf="insertFrm.controls['password'].hasError('required') && (insertFrm.controls['password'].dirty||insertFrm.controls['password'].touched)">
+                        <small *ngIf="insertFrm.controls['password'].hasError('required')" class="text-danger">password is required.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter name" formControlName="name" >
+                    <div *ngIf="insertFrm.controls['name'].hasError('required') && (insertFrm.controls['name'].dirty||insertFrm.controls['name'].touched)">
+                        <small *ngIf="insertFrm.controls['name'].hasError('required')" class="text-danger">name is required.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tel">Phone Number</label>
+                    <input type="tel" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter phone number" formControlName="tel" >
+                    <div *ngIf="insertFrm.controls['tel'].hasError('required') && (insertFrm.controls['tel'].dirty||insertFrm.controls['tel'].touched)">
+                        <small *ngIf="insertFrm.controls['tel'].hasError('required')" class="text-danger">Phone number is required.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" from aria-describedby="UserNameHelp" placeholder="Enter email" formControlName="email" >
+                    <div *ngIf="insertFrm.controls['email'].hasError('required') && (insertFrm.controls['email'].dirty||insertFrm.controls['email'].touched)">
+                        <small *ngIf="insertFrm.controls['email'].hasError('required')" class="text-danger">email is required.</small>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" [disabled]="!insertFrm.valid" value="Sign Up">
+            </form>
+        </div>
+    </div> 
+</div> 

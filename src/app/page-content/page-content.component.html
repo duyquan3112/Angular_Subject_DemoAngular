@@ -1,0 +1,77 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+    For more information about DataTables, please visit the <a target="_blank"
+        href="https://datatables.net">official DataTables documentation</a>.</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">VGA List</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr >
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>S/N</th>
+                        <th>Export Date</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>S/N</th>
+                        <th>Export Date</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
+                </tfoot>
+                
+                <tbody>
+                    <tr *ngFor="let vga of vgas | async " >
+                        <td>
+                            {{vga.id}}
+                        </td>
+                        <td >
+                            {{vga.name}}
+                        </td>
+                        <td >
+                            {{vga.sn}}
+                        </td>
+                        <td >
+                            {{vga.edate}}
+                        </td>
+                        <td >
+                            {{vga.price}}
+                        </td>
+                        <td>
+                            {{vga.quantity}}
+                        </td>
+                        <td *ngIf="vga.status">
+                            In Sale
+                        </td>
+                        <td *ngIf="!vga.status">
+                            Not in Sale
+                        </td>
+                    </tr>
+                    
+                </tbody>
+                
+            </table>
+            
+        </div>
+        <div>
+            <button (click)="add('7','RX 5600xt', '46464','12/01/2020', 40,40, true)">ADD</button>
+        </div>
+    </div>
+</div>

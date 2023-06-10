@@ -1,0 +1,5 @@
+.bg-login-image {
+    background: url(src\assets\img\thengs.jpg);
+    background-position: center;
+    background-size: cover;
+}
